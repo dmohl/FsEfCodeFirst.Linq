@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>FsEfCodeFirst.Linq</id>
+    <version>0.1.0.0</version>
+    <dependencies>
+		<dependency id="EntityFramework" version="4.3.0" />
+		<dependency id="FSPowerPack.Core.Community" version="2.0.0.0" />
+    </dependencies>
+    <authors>Daniel Mohl</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>FsEfCodeFirst.Linq provides a quick way to create EFCodeFirst + PowerPack.Linq for data access in an F# project.</description>
+    <summary>FsEfCodeFirst.Linq provides a quick way to create EFCodeFirst + PowerPack.Linq for data access in an F# project.</summary>
+    <language>en-US</language>
+    <licenseUrl>http://www.opensource.org/licenses/ms-pl.html</licenseUrl>
+  </metadata>
+  <files>
+	  <file src="Content\*.pp" target="Content" />
+	  <file src="Tools\*.ps1" target="Tools" />
+  </files>
+</package>
