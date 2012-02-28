@@ -18,9 +18,7 @@ type MyApplicationEntities() =
     // replace "MyApplicationName" with whatever you want the database name to be
     inherit DbContext("MyApplicationName")
 
-    // If you want Entity Framework to drop and regenerate your database automatically whenever you change
-    // your model schema, add the following line to the Application_Start() method in Global.asax.cs:
-    //do DbDatabase.SetInitializer(new DropCreateDatabaseIfModelChanges<MyApplicationEntities>());
+    do Database.SetInitializer(new CreateDatabaseIfNotExists<FsMvcAppEntities>())
 
     [<DefaultValue(true)>] val mutable samples : DbSet<ASample>
     member x.Samples with get() = x.samples and set(v) = x.samples <- v
@@ -28,5 +26,5 @@ type MyApplicationEntities() =
 
 type SamplesRepository() =
     member x.GetAll () = 
-        use context = new MyApplicationEntities() 
+        let context = new MyApplicationEntities() 
         query <@ seq { for g in context.Samples do yield g } @> 
