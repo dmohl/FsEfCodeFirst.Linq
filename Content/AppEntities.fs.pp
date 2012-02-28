@@ -3,7 +3,6 @@ namespace $rootnamespace$.Repositories
 open System
 open System.Collections.Generic
 open System.Data.Entity
-open System.Data.Entity.Database
 open Microsoft.FSharp.Linq.Query
 
 type ASample() =
@@ -18,7 +17,7 @@ type MyApplicationEntities() =
     // replace "MyApplicationName" with whatever you want the database name to be
     inherit DbContext("MyApplicationName")
 
-    do Database.SetInitializer(new CreateDatabaseIfNotExists<FsMvcAppEntities>())
+    do Database.SetInitializer(new CreateDatabaseIfNotExists<MyApplicationEntities>())
 
     [<DefaultValue(true)>] val mutable samples : DbSet<ASample>
     member x.Samples with get() = x.samples and set(v) = x.samples <- v

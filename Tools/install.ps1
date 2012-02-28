@@ -2,10 +2,14 @@ param($installPath, $toolsPath, $package, $project)
 	try
     {
 		$project.Object.References.Add("System.Data");
-		$project.Object.References.Add("System.Data.Entity");
     }
-    catch [System.Net.WebException]
+    catch [System.Exception]
     {
-		$project.Object.References.Add("*System.Data");
-		$project.Object.References.Add("*System.Data.Entity");
+	    try 
+		{
+			$project.Object.References.Add("*System.Data");
+		}
+		catch
+		{
+		}
     }  
